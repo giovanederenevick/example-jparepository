@@ -50,7 +50,7 @@ public class UserController {
     public ResponseEntity<Page<User>> searchByName(@RequestParam(defaultValue = "") String name,
                                                      Pageable pageable) {
 
-        Page<User> result = userRepository.findByName(name, pageable);
+        Page<User> result = userRepository.findByNameContainingIgnoreCase(name, pageable);
 
         return ResponseEntity.ok(result);
     }
